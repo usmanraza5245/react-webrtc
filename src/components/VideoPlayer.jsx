@@ -6,7 +6,7 @@ const VideoPlayer = () => {
   const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
     useContext(SocketContext);
 
-  console.log("user video", userVideo);
+  // console.log("user video", userVideo);
   return (
     <Grid justifyContent="center" templateColumns="repeat(2, 1fr)" mt="12">
       {/* my video */}
@@ -14,7 +14,7 @@ const VideoPlayer = () => {
       <Box>
         <Grid colSpan={1}>
           screen 1
-          {stream && (
+          {stream && !userVideo?.current && (
             <>
               <Heading as="h5">{name || "Name"}</Heading>
               <video playsInline muted ref={myVideo} autoPlay width="600" />
